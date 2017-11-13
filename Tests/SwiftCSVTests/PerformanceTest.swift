@@ -13,13 +13,18 @@ class PerformanceTest: XCTestCase {
     var csv: CSV!
 
     override func setUp() {
-        let csvURL = NSBundle(forClass: CSVTests.self).URLForResource("large", withExtension: "csv")!
+        print(Bundle(for: type(of: self)).bundleURL.absoluteString)
+        let csvURL = Bundle(for: CSVTests.self).url(forResource: "large", withExtension: "csv")!
         csv = try! CSV(url: csvURL)
     }
 
     func testParsePerformance() {
-        measureBlock {
-            self.csv.rows
+        measure {
+            _ = self.csv.rows
         }
     }
+    
+    static var allTests = [
+        ("testParsePerformance", testParsePerformance)
+    ]
 }

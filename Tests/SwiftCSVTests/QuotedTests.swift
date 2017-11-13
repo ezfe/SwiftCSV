@@ -38,4 +38,9 @@ class QuotedTests: XCTestCase {
             "age": "8"
         ])
     }
+    
+    static var allTests = [
+        ("testQuotedHeader", testQuotedHeader),
+        ("testQuotedContent", testQuotedContent)
+    ]
 }
