@@ -29,3 +29,4 @@ DerivedData
 # Pods/
 
 .build/
+/*.xcodeproj
